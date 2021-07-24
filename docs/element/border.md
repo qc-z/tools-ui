@@ -1,0 +1,24 @@
+# Border 边框
+
+我们对边框进行统一规范，可用于按钮、卡片、弹窗等组件里。
+
+## 边框
+
+我们提供了以下几种边框样式，以供选择。
+
+<Border></Border>
+
+
+## 圆角
+
+我们提供了以下几种圆角样式，以供选择。
+<BorderRadius></BorderRadius>
+
+
+
+## 投影
+
+我们提供了以下几种投影样式，以供选择。
+<BorderShadow></BorderShadow>
+
+
