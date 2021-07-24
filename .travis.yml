@@ -16,8 +16,8 @@ script:
 deploy:
   provider: pages
   skip-cleanup: true
-  github-token: $travis_ci # travis setting 中的环境变量 GITHUB_TOKEN
-  local-dir: ./web/my-components-librarys # 根据情况自定义到静态文件输出目录
+  github-token: $tools-ui # travis setting 中的环境变量 GITHUB_TOKEN
+  local-dir: ./web/tools-ui # 根据情况自定义到静态文件输出目录
   target-branch: gh-pages # 构建后的静态资源提交到这个分支
   verbose: true
   on:
