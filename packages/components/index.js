@@ -1,13 +1,8 @@
-const files = require.context('.', true, /\.js$/)
+// import getPath from '../utils/getFilePath';
+import Button from './button'
+import Input from './input'
 
-let configRouters = [], components = {};
-/**
- * inject routers
- */
-files.keys().forEach(key => {
-  if (key === './index.js') return
-  const com = files(key).default
-  configRouters = configRouters.concat(com) // 读取出文件中的default模块
-  components[com.name] = com
-})
-export default components
+export default {
+  ToolsButton: Button,
+  ToolsInput: Input,
+}

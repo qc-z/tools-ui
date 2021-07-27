@@ -22,3 +22,25 @@ Vue.use(ToolsUI)
 import { Hello } from "tools-ui"
 Vue.use(Hello)
 ```
+**安装`babel-plugin-component`**
+
+在根目录新建`.babelrc`
+```yaml
+{
+  "plugins": [
+    [
+        "component",
+      {
+        "libraryName": "tools-ui",
+        "libDir": "lib",
+        "styleLibrary": {
+          "name": "styles",
+          "base": false,
+          "path": "[module].css"
+        }
+      }
+    ]
+  ]
+}
+
+```

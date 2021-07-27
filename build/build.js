@@ -1,5 +1,5 @@
 const webpack = require('webpack');
-const config = require('./webpack.prod.conf');
+const config = require('./webpack.prod');
 
 webpack(config, (err, stats) => {
   if (err) {

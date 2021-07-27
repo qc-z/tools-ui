@@ -21,7 +21,7 @@ module.exports = {
   ],
   'rules': {
     'vue/no-parsing-error': ['off'],
-    'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
+    // 'no-console': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off',
     //强制使用单引号
     'quotes': ['error', 'single'],

@@ -1,7 +1,7 @@
+const path = require('path');
 const merge = require('webpack-merge');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
-const path = require('path');
-const baseConfig = require('./webpack.prod.base.conf');
+const baseConfig = require('./webpack.base');
 const SpeedMeasurePlugin = require('speed-measure-webpack-plugin');
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const smp = new SpeedMeasurePlugin();
@@ -9,8 +9,16 @@ const smp = new SpeedMeasurePlugin();
 module.exports = smp.wrap(merge(baseConfig, {
   mode: 'production',
   devtool: 'source-map',
-  module: {
-    rules: []
+  entry: {
+    app: path.resolve(__dirname, '../packages/index.js')
+  },
+  output: {
+    path: path.resolve(process.cwd(), './lib'),
+    publicPath: '/dist/',
+    filename: 'index.js',
+    chunkFilename: '[id].js',
+    libraryExport: 'default',
+    libraryTarget: 'commonjs2'
   },
   plugins: [
     new CleanWebpackPlugin(['lib/'], {
@@ -21,8 +29,7 @@ module.exports = smp.wrap(merge(baseConfig, {
     function () {
       this.hooks.done.tap('done', (stats) => {
         if (stats.compilation.errors &&
-          stats.compilation.errors.length && process.argv.indexOf('-- watch') === -1)
-        {
+          stats.compilation.errors.length && process.argv.indexOf('-- watch') === -1) {
           console.log('build error');
           process.exit(1);
         }
@@ -30,5 +37,13 @@ module.exports = smp.wrap(merge(baseConfig, {
     }
     // 体积分析
     // new BundleAnalyzerPlugin(),
-  ]
+  ],
+  externals: {
+    vue: {
+      root: 'Vue',
+      commonjs: 'vue',
+      commonjs2: 'vue',
+      amd: 'vue'
+    }
+  }
 }))

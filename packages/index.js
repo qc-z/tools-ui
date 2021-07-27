@@ -6,6 +6,7 @@ const install = function (Vue) {
   // 判断是否安装过
   if (install.installed) return;
   // 注册组件
+  console.log(components)
   Object.keys(components).forEach(key => {
     Vue.component(key, components[key])
   })
@@ -18,10 +19,9 @@ const install = function (Vue) {
 if (typeof window !== 'undefined' && window.Vue) {
   install(window.Vue)
 }
-const API = {
-  version: '0.0.14',
+
+export {
   install,
-  ...directives,
-  ...components
+  components
 }
-export default API
+export default install
