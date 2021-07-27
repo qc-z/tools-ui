@@ -1,6 +1,6 @@
 {
   "name": "tools-ui",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "封装一些业务中常用的组件和工具",
   "main": "lib/index.js",
   "module": "lib/index.js",
@@ -97,5 +97,18 @@
     "extends": [
       "@commitlint/config-conventional"
     ]
-  }
+  },
+  "browserslist": [
+    "> 1%",
+    "last 2 versions",
+    "not dead"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/qc-z/tools-ui"
+  },
+  "homepage": "https://qc-z.github.io/tools-ui"
 }
