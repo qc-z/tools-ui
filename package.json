@@ -1,25 +1,24 @@
 {
   "name": "tools-ui",
-  "version": "1.0.0",
+  "version": "1.2.0",
   "description": "封装一些业务中常用的组件和工具",
-  "main": "lib/tools-ui.js",
+  "main": "lib/index.js",
+  "module": "lib/index.js",
   "scripts": {
-    "dev": "webpack-dev-server --inline --progress --hot --config build/webpack.dev.conf.js",
-    "build": "node ./build/build.js",
-    "lib": "node ./build/build.js --target lib --name tools-ui --dest lib packages/index.js",
+    "build": "webpack --config build/webpack.prod.js",
+    "build:style": "gulp --gulpfile build/gen-style.js",
+    "build:components": "webpack --config build/webpack.component.js",
+    "dist": "npm run build && npm run build:components && npm run build:style",
     "docs:dev": "vuepress dev docs --open",
     "docs:build": "vuepress build docs",
-    "lint": "eslint --ext .js --ext .vue examples/ packages/",
-    "lint-fix": "eslint --fix --ext .js --ext .jsx --ext .vue examples/ packages/",
+    "lint": "eslint --ext .js --ext .vue packages/",
+    "lint-fix": "eslint --fix --ext .js --ext .jsx --ext .vue packages/",
     "commit": "git-cz",
     "release": "standard-version"
   },
   "dependencies": {
     "element-ui": "^2.15.3",
-    "style-loader": "2.0.0",
-    "vue": "^2.6.11",
-    "vue-router": "^3.0.1",
-    "vuex": "^3.0.1"
+    "vue": "^2.6.11"
   },
   "devDependencies": {
     "@babel/core": "^7.14.8",
@@ -55,6 +54,7 @@
     "standard-version": "^9.3.0",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
+    "style-loader": "2.0.0",
     "vue-loader": "15.4.2",
     "vue-router": "^3.2.0",
     "vue-template-compiler": "^2.5.17",
@@ -65,7 +65,12 @@
     "webpack-bundle-analyzer": "^4.4.2",
     "webpack-cli": "^3.3.7",
     "webpack-dev-server": "^3.1.9",
-    "webpack-merge": "^4.1.4"
+    "webpack-merge": "^4.1.4",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.0",
+    "gulp-clean-css": "^4.2.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2"
   },
   "author": "qc-z",
   "license": "ISC",
