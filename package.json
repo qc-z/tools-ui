@@ -1,6 +1,6 @@
 {
   "name": "tools-ui",
-  "version": "1.2.3",
+  "version": "1.1.2",
   "description": "封装一些业务中常用的组件和工具",
   "main": "lib/index.js",
   "module": "lib/index.js",
@@ -17,6 +17,7 @@
     "release": "standard-version"
   },
   "dependencies": {
+    "babel-eslint": "^10.1.0",
     "element-ui": "^2.15.3",
     "vue": "^2.6.11"
   },
@@ -44,6 +45,11 @@
     "extract-text-webpack-plugin": "^4.0.0-beta.0",
     "file-loader": "^2.0.0",
     "friendly-errors-webpack-plugin": "^1.7.0",
+    "gulp": "^4.0.2",
+    "gulp-autoprefixer": "^7.0.0",
+    "gulp-clean-css": "^4.2.0",
+    "gulp-rename": "^1.4.0",
+    "gulp-sass": "^4.0.2",
     "html-webpack-plugin": "^3.2.0",
     "husky": "^1.0.1",
     "mini-css-extract-plugin": "^0.4.4",
@@ -52,9 +58,9 @@
     "sass-loader": "^7.3.1",
     "speed-measure-webpack-plugin": "^1.5.0",
     "standard-version": "^9.3.0",
+    "style-loader": "2.0.0",
     "stylus": "^0.54.5",
     "stylus-loader": "^3.0.2",
-    "style-loader": "2.0.0",
     "vue-loader": "15.4.2",
     "vue-router": "^3.2.0",
     "vue-template-compiler": "^2.5.17",
@@ -65,12 +71,7 @@
     "webpack-bundle-analyzer": "^4.4.2",
     "webpack-cli": "^3.3.7",
     "webpack-dev-server": "^3.1.9",
-    "webpack-merge": "^4.1.4",
-    "gulp": "^4.0.2",
-    "gulp-autoprefixer": "^7.0.0",
-    "gulp-clean-css": "^4.2.0",
-    "gulp-rename": "^1.4.0",
-    "gulp-sass": "^4.0.2"
+    "webpack-merge": "^4.1.4"
   },
   "author": "qc-z",
   "license": "ISC",

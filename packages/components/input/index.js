@@ -1,4 +1,4 @@
-import { install } from '../../utils/util';
-import Module from './input';
+import { installed } from '../../utils/helper'
+import Module from './input'
 
-export default install(Module);
+export default installed(Module)
