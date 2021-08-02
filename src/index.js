@@ -15,7 +15,7 @@ const install = function(Vue) {
     Vue.directive(key, directives[key])
   })
 }
-// 自动安装 (用于script引入)
+// 自动安装 (用于script标签引入)
 if (typeof window !== 'undefined' && window.Vue) {
   install(window.Vue)
 }
