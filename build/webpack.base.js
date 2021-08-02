@@ -1,16 +1,17 @@
-const path = require('path');
-const webpack = require('webpack');
+const path = require('path')
+const webpack = require('webpack')
 // const AutoDllPlugin = require('autodll-webpack-plugin');
-const VueLoaderPlugin = require('vue-loader/lib/plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
-const NotifierPlugin = require('friendly-errors-webpack-plugin');
-const ESLintPlugin = require('eslint-webpack-plugin');
+const VueLoaderPlugin = require('vue-loader/lib/plugin')
+const ExtractTextPlugin = require('extract-text-webpack-plugin')
+const NotifierPlugin = require('friendly-errors-webpack-plugin')
+const ESLintPlugin = require('eslint-webpack-plugin')
 module.exports = {
   resolve: {
     extensions: ['*', '.js', '.json', '.vue', 'scss'],
     alias: {
-      'Vue': 'vue/dist/vue.esm.js',
-      'p': path.resolve(__dirname, '../packages'),
+      Vue: 'vue/dist/vue.esm.js',
+      '@packages': path.resolve(__dirname, '../packages'),
+      '@': path.resolve(__dirname, '../src')
     }
   },
   module: {
@@ -22,9 +23,7 @@ module.exports = {
           loader: 'babel-loader',
           options: {
             // 用babel-loader需要把es6-es5
-            presets: [
-              '@babel/preset-env'
-            ]
+            presets: ['@babel/preset-env']
           }
         },
         exclude: /node_modules/
@@ -51,32 +50,30 @@ module.exports = {
         loader: 'vue-loader',
         options: {
           loaders: {
-            'scss': 'style-loader!css-loader!sass-loader'
+            scss: 'style-loader!css-loader!sass-loader'
           }
         }
       },
       {
         test: /\.(png|svg|jpg|gif)$/,
         exclude: /^node_modules$/,
-        use: [
-          'file-loader'
-        ]
+        use: ['file-loader']
       },
       {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
         exclude: /^node_modules$/,
-        use: [
-          'file-loader'
-        ]
+        use: ['file-loader']
       }
     ]
   },
   plugins: [
-    new webpack.NamedChunksPlugin((chunk) => {
+    new webpack.NamedChunksPlugin(chunk => {
       if (chunk.name) {
-        return chunk.name;
+        return chunk.name
       }
-      return chunk.mapModules(m => path.relative(m.context, m.request)).join('_');
+      return chunk
+        .mapModules(m => path.relative(m.context, m.request))
+        .join('_')
     }),
     new webpack.NamedModulesPlugin(),
     // DefinePlugin 允许在 编译时 将你代码中的变量替换为其他值或表达式
@@ -110,11 +107,11 @@ module.exports = {
           chunks: 'initial',
           name: 'vendors',
           enforce: true,
-          minSize: 50000, // 限制最小大小 ( byte )
-        },
+          minSize: 50000 // 限制最小大小 ( byte )
+        }
       },
       chunks: 'all'
-    },
+    }
   },
   stats: {
     modules: false

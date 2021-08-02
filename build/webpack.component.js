@@ -2,12 +2,12 @@ const path = require('path')
 const merge = require('webpack-merge')
 const baseConfig = require('./webpack.base')
 const SpeedMeasurePlugin = require('speed-measure-webpack-plugin')
-const { prefix } = require('../packages/utils/prefix')
+const { prefix } = require('../src/utils/prefix')
 
 // const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 const smp = new SpeedMeasurePlugin()
 const { getPath } = require('./getFilePath')
-const components = getPath('../packages/components')
+const components = getPath('@packages')
 process.env.NODE_ENV = 'production'
 
 const basePath = path.resolve(__dirname, '../')

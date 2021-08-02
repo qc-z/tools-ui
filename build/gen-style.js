@@ -4,8 +4,8 @@ const sass = require('gulp-sass')
 const rename = require('gulp-rename')
 const autoprefixer = require('gulp-autoprefixer')
 const { getPath } = require('./getFilePath')
-const components = getPath('../packages/components')
-const { prefix, firstToUpper } = require('../packages/utils/prefix')
+const components = getPath('../packages/index')
+const { prefix } = require('../src/utils/prefix')
 
 function buildCss(cb) {
   gulp

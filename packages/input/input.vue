@@ -11,8 +11,8 @@
 </template>
 
 <script>
-import { oneOf } from '../../utils/assist'
-import Emitter from '../../mixins/emitter'
+import { oneOf } from '@/utils/assist'
+import Emitter from '@/mixins/emitter'
 
 export default {
   name: 'ToolsInput',
