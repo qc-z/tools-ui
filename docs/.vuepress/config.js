@@ -1,13 +1,18 @@
 const sidebar = require('./sidebar')
 const nav = require('./nav')
+const path = require('path')
+
 module.exports = {
   title: 'tools-ui',
   description: 'vue组件库',
   head: [
-    ['link', {
-      rel: 'icon',
-      href: '/favicon.ico'
-    }]
+    [
+      'link',
+      {
+        rel: 'icon',
+        href: '/favicon.ico'
+      }
+    ]
   ],
   base: '/tools-ui/',
   port: '7080',
@@ -33,17 +38,19 @@ module.exports = {
     // ['@vuepress/back-to-top', true],
     ['demo-container'],
     [
-      'vuepress-plugin-gotop-plus', {
-      // 是否在移动设备上显示(default: true)
-      mobileShow: false,
-      // 回到页首元素显示触发的高度阈值(default: 50)
-      threshold: 50,
-      log: false
-    }
+      'vuepress-plugin-gotop-plus',
+      {
+        // 是否在移动设备上显示(default: true)
+        mobileShow: false,
+        // 回到页首元素显示触发的高度阈值(default: 50)
+        threshold: 50,
+        log: false
+      }
     ]
   ],
   chainWebpack: (config, isServer) => {
     config.resolve.alias.set('$docs', process.cwd() + '/docs/.vuepress')
-    config.resolve.alias.set('$lib', process.cwd() + '/packages')
+    config.resolve.alias.set('@packages', path.resolve(__dirname, '../../packages'))
+    config.resolve.alias.set('@', path.resolve(__dirname, '../../src'))
   }
 }
