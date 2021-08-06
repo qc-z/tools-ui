@@ -5,6 +5,7 @@
   "main": "lib/index.js",
   "module": "lib/index.js",
   "scripts": {
+    "test": "jest --watch",
     "init": "node build/bin/build-entry.js",
     "build": "cross-env NODE_ENV=production webpack --config build/webpack.prod.js",
     "build:style": "gulp --gulpfile build/gen-style.js",
@@ -18,11 +19,13 @@
     "release": "standard-version"
   },
   "dependencies": {
+    "@types/jest": "^26.0.24",
     "element-ui": "^2.15.3",
     "vue": "^2.6.11"
   },
   "devDependencies": {
     "@babel/core": "^7.14.8",
+    "@babel/preset-env": "^7.14.9",
     "@commitlint/cli": "^12.1.4",
     "@commitlint/config-conventional": "^12.1.4",
     "@vuepress/plugin-back-to-top": "^2.0.0-beta.16",
@@ -31,6 +34,7 @@
     "autoprefixer": "^9.1.5",
     "babel-core": "^6.26.3",
     "babel-eslint": "^10.1.0",
+    "babel-jest": "^27.0.6",
     "babel-loader": "^8.2.2",
     "babel-polyfill": "^6.26.0",
     "babel-preset-env": "^1.7.0",
@@ -55,6 +59,7 @@
     "gulp-sass": "^4.0.2",
     "html-webpack-plugin": "^3.2.0",
     "husky": "^1.0.1",
+    "jest": "27.0.5",
     "mini-css-extract-plugin": "^0.4.4",
     "node-sass": "^4.14.1",
     "ora": "^5.4.1",

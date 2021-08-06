@@ -21,5 +21,13 @@ module.exports = {
     //强制使用单引号
     quotes: ['error', 'single'],
     eqeqeq: [2, 'always']
-  }
+  },
+  overrides: [
+    {
+      files: ['**/*.spec.js', '**/*.spec.jsx', '**/*.test.js', '**/*.test.jsx'],
+      env: {
+        jest: true
+      }
+    }
+  ]
 }

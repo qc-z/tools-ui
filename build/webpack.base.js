@@ -5,6 +5,7 @@ const VueLoaderPlugin = require('vue-loader/lib/plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const NotifierPlugin = require('friendly-errors-webpack-plugin')
 const ESLintPlugin = require('eslint-webpack-plugin')
+
 module.exports = {
   resolve: {
     extensions: ['*', '.js', '.json', '.vue', 'scss'],
@@ -71,9 +72,7 @@ module.exports = {
       if (chunk.name) {
         return chunk.name
       }
-      return chunk
-        .mapModules(m => path.relative(m.context, m.request))
-        .join('_')
+      return chunk.mapModules(m => path.relative(m.context, m.request)).join('_')
     }),
     new webpack.NamedModulesPlugin(),
     // DefinePlugin 允许在 编译时 将你代码中的变量替换为其他值或表达式
