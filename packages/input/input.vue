@@ -15,7 +15,7 @@ import { oneOf } from '@/utils/assist'
 import Emitter from '@/mixins/emitter'
 
 export default {
-  name: 'ToolsInput',
+  name: 'TInput',
   mixins: [Emitter],
   props: {
     value: {

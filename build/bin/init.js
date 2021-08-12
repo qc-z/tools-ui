@@ -1,7 +1,7 @@
 /*
  * @Description:
  * @Date: 2021-08-02 11:18:38
- * @LastEditTime: 2021-08-02 17:17:37
+ * @LastEditTime: 2021-08-12 21:03:41
  */
 const fs = require('fs') //文件模块
 const path = require('path')
@@ -13,7 +13,7 @@ const createIndexTemplate = require('../template/createIndexTemplate.js')
 const packages = fs.readdirSync(path.resolve(__dirname + '../../../packages'))
 let introduce = ''
 const components = []
-packages.forEach(item => {
+packages.forEach((item) => {
   if (item.includes('.')) {
     return
   }

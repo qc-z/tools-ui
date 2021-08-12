@@ -7,12 +7,13 @@ const NotifierPlugin = require('friendly-errors-webpack-plugin')
 const ESLintPlugin = require('eslint-webpack-plugin')
 
 module.exports = {
+  mode: 'production',
   resolve: {
     extensions: ['*', '.js', '.json', '.vue', 'scss'],
     alias: {
       Vue: 'vue/dist/vue.esm.js',
-      '@packages': path.resolve(__dirname, '../packages'),
-      '@': path.resolve(__dirname, '../src')
+      '@packages': path.resolve(__dirname, '../../packages'),
+      '@': path.resolve(__dirname, '../../src')
     }
   },
   module: {
@@ -68,11 +69,13 @@ module.exports = {
     ]
   },
   plugins: [
-    new webpack.NamedChunksPlugin(chunk => {
+    new webpack.NamedChunksPlugin((chunk) => {
       if (chunk.name) {
         return chunk.name
       }
-      return chunk.mapModules(m => path.relative(m.context, m.request)).join('_')
+      return chunk
+        .mapModules((m) => path.relative(m.context, m.request))
+        .join('_')
     }),
     new webpack.NamedModulesPlugin(),
     // DefinePlugin 允许在 编译时 将你代码中的变量替换为其他值或表达式

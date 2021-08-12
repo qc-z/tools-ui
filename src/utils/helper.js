@@ -5,6 +5,6 @@
  */
 
 export function installed(Mod) {
-  Mod.install = Vue => Vue.component(Mod.name, Mod)
+  Mod.install = (Vue) => Vue.component(Mod.name, Mod)
   return Mod
 }
