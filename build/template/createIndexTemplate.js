@@ -1,3 +1,8 @@
+/*
+ * @Description:模板文件 packages/index.js
+ * @Date: 2021-08-02 11:27:03
+ * @LastEditTime: 2021-08-13 11:41:15
+ */
 const prettier = require('prettier')
 const createIndexTemplate = function(introduce, components) {
   const templateCode = `

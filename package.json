@@ -18,7 +18,6 @@
     "release": "standard-version"
   },
   "dependencies": {
-    "@types/jest": "^26.0.24",
     "element-ui": "^2.15.3",
     "vue": "^2.6.11",
     "vue-router": "3.2.0"
@@ -60,6 +59,7 @@
     "html-webpack-plugin": "^3.2.0",
     "husky": "^1.0.1",
     "jest": "27.0.5",
+    "@types/jest": "^26.0.24",
     "mini-css-extract-plugin": "^0.4.4",
     "node-sass": "^4.14.1",
     "ora": "^5.4.1",

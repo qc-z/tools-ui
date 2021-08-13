@@ -1,39 +1,34 @@
+/*
+ * @Description:组件打包webpack配置文件
+ * @Date: 2021-08-13 01:13:22
+ * @LastEditTime: 2021-08-13 11:39:12
+ */
 const path = require('path')
 const merge = require('webpack-merge')
 const baseConfig = require('../config/webpack.base.js')
 const CleanWebpackPlugin = require('clean-webpack-plugin')
-
-// const SpeedMeasurePlugin = require('speed-measure-webpack-plugin')
-// const { prefix } = require('../src/utils/prefix')
-const ora = require('ora')
-// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
 // 速度分析
+// const SpeedMeasurePlugin = require('speed-measure-webpack-plugin')
 // const smp = new SpeedMeasurePlugin()
-// const { getPath } = require('./getFilePath')
-// const components = getPath(path.resolve(__dirname, '../packages'))
-// console.log(getPath(path.resolve(__dirname, '../packages')))
-const entries = require('../utils/getComponents')(
-  path.resolve(__dirname, '../../packages')
-)
+// 体积分析
+// const BundleAnalyzerPlugin = require('webpack-bundle-analyzer').BundleAnalyzerPlugin;
+const ora = require('ora')
+function resolve(dir = '.') {
+  return path.join(__dirname, '../../', dir)
+}
+// 入口文件
+const entries = require('../utils/getComponents')(resolve('packages'))
 
 process.env.NODE_ENV = 'production'
 const spinner = ora('组件生成中...').start()
 spinner.start()
-// const basePath = path.resolve(__dirname, '../')
-// let entries = {
-//   index: path.resolve(__dirname, '../packages/index.js')
-// }
-
-// Object.keys(components).forEach((key) => {
-//   entries[`${prefix}${key}`] = path.join(basePath, 'packages', components[key])
-// })
 
 module.exports = merge(baseConfig, {
   mode: 'production',
   devtool: 'source-map',
   entry: entries,
   output: {
-    path: path.resolve(__dirname, '../../lib'),
+    path: resolve('lib'),
     publicPath: '/lib/',
     filename: '[name].js',
     chunkFilename: '[id].js',
@@ -43,7 +38,7 @@ module.exports = merge(baseConfig, {
   },
   plugins: [
     new CleanWebpackPlugin(['lib/'], {
-      root: path.resolve(__dirname, '../../'),
+      root: resolve(),
       verbose: true,
       dry: false
     }),

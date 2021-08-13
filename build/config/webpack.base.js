@@ -1,3 +1,9 @@
+/*
+ * @Description:webpack基本配置
+ * @Date: 2021-07-26 10:40:00
+ * @LastEditTime: 2021-08-13 13:04:08
+ */
+
 const path = require('path')
 const webpack = require('webpack')
 // const AutoDllPlugin = require('autodll-webpack-plugin');
@@ -6,14 +12,17 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const NotifierPlugin = require('friendly-errors-webpack-plugin')
 const ESLintPlugin = require('eslint-webpack-plugin')
 
+function resolve(dir) {
+  return path.join(__dirname, '../../', dir)
+}
 module.exports = {
   mode: 'production',
   resolve: {
     extensions: ['*', '.js', '.json', '.vue', 'scss'],
     alias: {
       Vue: 'vue/dist/vue.esm.js',
-      '@packages': path.resolve(__dirname, '../../packages'),
-      '@': path.resolve(__dirname, '../../src')
+      '@packages': resolve('packages'),
+      '@': resolve('src')
     }
   },
   module: {

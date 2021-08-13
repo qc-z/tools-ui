@@ -1,5 +1,6 @@
 <script>
 import { oneOf } from '@/utils/assist'
+
 export default {
   name: 'TButton',
   props: {
@@ -8,22 +9,26 @@ export default {
         return oneOf(value, ['default', 'primary', 'info', 'success', 'warning', 'error'])
       },
       type: String,
-      default: 'primary'
+      default: 'default'
+    }
+  },
+  methods: {
+    click() {
+      console.log(999)
     }
   },
   render: function (h) {
     // const that = this
-    // console.log(this.$slots.default)
-
     return h(
       'button', // 标签名称
       {
         class: ['tools-button', `tools-button-${this.type}`],
         attrs: { type: 'button' },
-        domProps: {
-          innerHTML: this.$slots.default[0].text
+        on: {
+          click: this.click
         }
-      }
+      },
+      [...this.$slots.default]
     )
   }
   //     <template>

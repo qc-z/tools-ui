@@ -1,7 +1,22 @@
+/*
+ * @Description:生成文件中对应键值对 
+example:
+{
+  index: '/Users/qichenggege/Desktop/refactor/packages',
+  't-button': '/Users/qichenggege/Desktop/refactor/packages/button',
+  't-input': '/Users/qichenggege/Desktop/refactor/packages/input'
+}
+ * @Date: 2021-08-12 22:07:58
+ * @LastEditTime: 2021-08-13 12:05:16
+ */
+
 const fs = require('fs')
 const path = require('path')
-const { namespace } = require('../../src/utils/prefix')
+const { namespace } = require(resolve('src/utils/prefix'))
 
+function resolve(dir) {
+  return path.join(__dirname, '../../', dir)
+}
 /**
  * 判断刚路径是否含有index.js
  * @param {String} dir
@@ -33,7 +48,7 @@ const getPath = function(entryDir) {
     .forEach((dir) => {
       result[`${namespace}-${dir}`] = path.resolve(entryDir, dir)
     })
+
   return result
 }
-
 module.exports = getPath
