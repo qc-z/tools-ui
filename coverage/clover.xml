@@ -1,31 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1628833949533" clover="3.2.0">
-  <project timestamp="1628833949533" name="All files">
-    <metrics statements="19" coveredstatements="19" conditionals="8" coveredconditionals="7" methods="5" coveredmethods="5" elements="32" coveredelements="31" complexity="0" loc="19" ncloc="19" packages="1" files="2" classes="2"/>
-    <file name="mock.js" path="/Users/qichenggege/Desktop/refactor/tests/day01/mock.js">
-      <metrics statements="7" coveredstatements="7" conditionals="4" coveredconditionals="3" methods="3" coveredmethods="3"/>
-      <line num="6" count="1" type="stmt"/>
-      <line num="7" count="2" type="stmt"/>
-      <line num="8" count="2" type="stmt"/>
-      <line num="9" count="4" type="stmt"/>
-      <line num="10" count="24" type="cond" truecount="3" falsecount="1"/>
-      <line num="12" count="4" type="stmt"/>
-      <line num="14" count="2" type="stmt"/>
-    </file>
-    <file name="sum.js" path="/Users/qichenggege/Desktop/refactor/tests/day01/sum.js">
-      <metrics statements="12" coveredstatements="12" conditionals="4" coveredconditionals="4" methods="2" coveredmethods="2"/>
-      <line num="11" count="1" type="stmt"/>
-      <line num="12" count="1" type="stmt"/>
-      <line num="13" count="1" type="stmt"/>
-      <line num="14" count="7" type="cond" truecount="2" falsecount="0"/>
-      <line num="15" count="1" type="stmt"/>
-      <line num="25" count="1" type="stmt"/>
-      <line num="26" count="1" type="stmt"/>
-      <line num="27" count="1" type="stmt"/>
-      <line num="28" count="7" type="stmt"/>
-      <line num="29" count="7" type="cond" truecount="2" falsecount="0"/>
-      <line num="30" count="1" type="stmt"/>
-      <line num="32" count="6" type="stmt"/>
-    </file>
+<coverage generated="1629871822831" clover="3.2.0">
+  <project timestamp="1629871822831" name="All files">
+    <metrics statements="0" coveredstatements="0" conditionals="0" coveredconditionals="0" methods="0" coveredmethods="0" elements="0" coveredelements="0" complexity="0" loc="0" ncloc="0" packages="0" files="0" classes="0"/>
   </project>
 </coverage>
